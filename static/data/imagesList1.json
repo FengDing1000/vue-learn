@@ -1,0 +1,74 @@
+{
+    "total": 100,
+    "data": [{
+            "image": "/static/images/imgs/pc/img_pc1.jpg",
+            "width": 480,
+            "height": 500
+        },
+        {
+            "image": "/static/images/imgs/mobile/img_mobile1.jpg",
+            "width": 480,
+            "height": 640
+        },
+        {
+            "image": "/static/images/imgs/pc/img_pc2.jpg",
+            "width": 480,
+            "height": 400
+        },
+        {
+            "image": "/static/images/imgs/mobile/img_mobile2.jpeg",
+            "width": 480,
+            "height": 800
+        },
+        {
+            "image": "/static/images/imgs/pc/img_pc3.jpg",
+            "width": 480,
+            "height": 600
+        },
+        {
+            "image": "/static/images/imgs/mobile/img_mobile3.jpg",
+            "width": 480,
+            "height": 680
+        },
+        {
+            "image": "/static/images/imgs/pc/img_pc4.jpg",
+            "width": 480,
+            "height": 500
+        },
+        {
+            "image": "/static/images/imgs/mobile/img_mobile4.jpg",
+            "width": 480,
+            "height": 640
+        },
+        {
+            "image": "/static/images/imgs/pc/img_pc5.jpg",
+            "width": 480,
+            "height": 480
+        },
+        {
+            "image": "/static/images/imgs/mobile/img_mobile5.jpg",
+            "width": 480,
+            "height": 580
+        },
+        {
+            "image": "/static/images/imgs/pc/img_pc6.jpg",
+            "width": 480,
+            "height": 600
+        },
+        {
+            "image": "/static/images/imgs/mobile/img_mobile6.jpg",
+            "width": 480,
+            "height": 900
+        },
+        {
+            "image": "/static/images/imgs/pc/img_pc7.jpg",
+            "width": 480,
+            "height": 490
+        },
+        {
+            "image": "/static/images/imgs/mobile/img_mobile7.jpg",
+            "width": 480,
+            "height": 1080
+        }
+    ]
+}

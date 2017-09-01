@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/layer/3.0.1/skin/default/layer.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/layer/3.0.1/layer.js"></script>
+    <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.js"></script>
+    <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.js"></script>
+    <style>
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        
+        body {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        #storyBook a {
+            text-decoration: none;
+        }
+        
+        #storyBook .content {
+            padding-top: 51px;
+            /* height: 2000px; */
+        }
+        
+        #storyBook .absolute {
+            position: absolute;
+        }
+        
+        #storyBook .search-container {
+            width: 100%;
+            height: 200px;
+            padding: 70px calc(50% - 314px);
+            background-image: url(./src/assets/images/banner1.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        
+        #storyBook .search-container .search-input {
+            position: relative;
+            width: 100%;
+            max-width: 728px;
+        }
+        
+        #storyBook .search-container .inputTxt {
+            width: 100%;
+            height: 60px;
+            opacity: 1;
+            background-color: #eceff1;
+            border-radius: 5px;
+            border: 0px;
+            padding-left: 50px;
+            color: #000;
+        }
+        
+        #storyBook .search-container .searchBtn {
+            top: 0;
+            right: 0;
+            height: 60px;
+            width: 173px;
+            background-color: #ec4d1c;
+            border: 0px;
+            color: #fff;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            transition: all .7s ease 0s;
+            font-size: 15px;
+            background: -webkit-linear-gradient(top, #f4511e 0, #d84315 100%);
+            background: linear-gradient(to bottom, #f4511e 0, #d84315 100%);
+        }
+        
+        #storyBook .search-container .searchBtn:hover {
+            color: #fff;
+            background-color: #ed3800;
+            background: -webkit-linear-gradient(top, #f03900 0, #bb2c00 100%);
+            background: linear-gradient(to bottom, #f03900 0, #bb2c00 100%);
+        }
+        
+        #storyBook .search-container .searchIcon {
+            transition: all 1.5s ease 0s;
+            left: 20px;
+            top: 18px;
+            color: #b0bec5;
+            font-size: 18px;
+        }
+        
+        #menu_wrap {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            background-color: #FFF;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+            text-align: center;
+            font-size: 15px;
+            color: #C8C8C8;
+            z-index: 5;
+        }
+        
+        #menu_wrap .plf0 {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+        
+        #menu_wrap .container a {
+            text-decoration: none;
+            color: #69696d;
+        }
+        
+        #menu_wrap .container a:hover {
+            color: #1769ff;
+        }
+        
+        #menu_wrap .container a.nav-bg {
+            padding-bottom: 13px;
+            border-bottom: 2px solid #007AFB;
+        }
+        
+        #menu_wrap .sort {
+            position: relative;
+            max-width: 33%;
+            display: inline-block;
+            padding-right: 20px;
+            padding-left: 20px;
+            text-align: left;
+            cursor: pointer;
+        }
+        
+        #menu_wrap .nav-zi {
+            position: absolute;
+            top: 50px;
+            left: 0px;
+            background-color: #fff;
+            height: auto;
+            width: 100%;
+            text-align: left;
+            border-top: 1px solid #E8E8E8;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+        }
+        
+        #menu_wrap .nav-zi ul {
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+        
+        #menu_wrap .nav-zi li {
+            width: 280px;
+        }
+        
+        #menu_wrap .nav-zi .list-inline>li {
+            display: inline-block;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+        
+        #menu_wrap .nav-zi a {
+            padding-left: 40px;
+            margin-left: 10px;
+            padding-right: 20px;
+            margin-right: 10px;
+            line-height: 40px;
+            border: 0;
+            text-align: center;
+        }
+        
+        #menu_wrap .nav-zi a i {
+            padding-right: 10px;
+            font-size: 18px;
+        }
+        
+        #menu_wrap .nav-zi a .ls {
+            color: #1769ff;
+        }
+        
+        #menu_wrap .border-cool-effect {
+            position: relative;
+            display: block;
+            border: 0;
+            box-shadow: inset 0 0 0 1px #EDEDED;
+            text-transform: capitalize;
+            box-sizing: border-box;
+        }
+        
+        #menu_wrap .border-cool-effect::before,
+        #menu_wrap .border-cool-effect::after {
+            box-sizing: border-box;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #menu_wrap .border-cool-effect.draw {
+            -webkit-transition: color 0.25s;
+            transition: color 0.25s;
+        }
+        
+        #menu_wrap .border-cool-effect.draw::before,
+        #menu_wrap .border-cool-effect.draw::after {
+            border: 2px solid transparent;
+            width: 0;
+            height: 0;
+        }
+        
+        #menu_wrap .border-cool-effect.draw::before {
+            top: 0;
+            left: 0;
+        }
+        
+        #menu_wrap .border-cool-effect.draw::after {
+            bottom: 0;
+            right: 0;
+        }
+        
+        #menu_wrap .border-cool-effect.draw:hover {
+            color: #60daaa;
+        }
+        
+        #menu_wrap .border-cool-effect.draw:hover::before,
+        #menu_wrap .border-cool-effect.draw:hover::after {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #menu_wrap .border-cool-effect.draw:hover::before {
+            border-top-color: #60daaa;
+            border-right-color: #60daaa;
+            -webkit-transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+            transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+        }
+        
+        #menu_wrap .border-cool-effect.draw:hover::after {
+            border-bottom-color: #60daaa;
+            border-left-color: #60daaa;
+            -webkit-transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+            transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+        }
+    </style>
+</head>
+
+<body id="storyBook">
+    <header>
+        <!-- 顶部的导航部分 -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <!-- (min-width: 768px) 条件下隐藏-->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">菜单栏目</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                    <a class="navbar-brand" href="#">乐屋小说网</a>
+                </div>
+
+                <!-- 菜单栏 -->
+                <div class="menu-container">
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <!-- 用户信息 -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a href="#">首页</a></li>
+                            <li><a href="#">页面1</a></li>
+                            <li><a href="#">页面2</a></li>
+                            <li><a href="#">页面3</a></li>
+                            <li><a href="#">页面4</a></li>
+                            <li class="hideContainer noChange"><a href="#">登录</a></li>
+                            <li class="hideContainer noChange"><a href="#">注册</a></li>
+                            <li class="dropdown">
+                                <div href="#" class="dropdown-toggle" data-toggle="dropdown"> <span>欢迎您</span>丁锋 </div>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">个人中心</a></li>
+                                    <li><a href="#">注销登录</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="content">
+        <!-- 条件搜索 -->
+        <div class="search-container">
+            <div class="search-input">
+                <input class="inputTxt" placeholder="输入小说关键字.." type="text">
+                <button class="btn absolute searchBtn" type="button"><i class="fa fa-chevron-circle-right"></i> 找到你梦想</button>
+                <span class="absolute searchIcon"><i class="fa fa-search"></i></span>
+            </div>
+        </div>
+
+        <div id="menu_wrap" class="container-fluid plf0">
+            <div class="container plf0">
+                <a class="nzz" href="http://www.jq22.com/jqueryUI-1-jq" id="z1">
+                    <span class="sort">
+                        <i class="fa fa-paint-brush"></i>
+                        &nbsp;UI 
+                        <i class="fa fa-angle-down"></i>
+                    </span>
+                </a>|
+                <a class="nzz" href="http://www.jq22.com/jquery输入-1-jq" id="z2">
+                    <span class="sort">
+                        <i class="fa fa-keyboard-o"></i>
+                        &nbsp;输入 
+                        <i class="fa fa-angle-down"></i>
+                    </span>
+                </a>|
+                <a class="nzz" href="http://www.jq22.com/jquery媒体-1-jq" id="z3">
+                    <span class="sort">
+                        <i class="fa fa-film"></i>
+                        &nbsp;媒体 
+                        <i class="fa fa-angle-down"></i>
+                    </span>
+                </a>|
+                <a class="nzz" href="http://www.jq22.com/jquery导航-1-jq" id="z4">
+                    <span class="sort ">
+                        <i class="fa fa-paper-plane-o"></i>
+                        &nbsp;导航 
+                        <i class="fa fa-angle-down"></i>
+                    </span>
+                </a>
+                <span class="navxs">|
+                    <a class="nzz" href="http://www.jq22.com/jquery其他-1-jq" id="z5">
+                        <span class="sort">
+                            <i class="fa fa-dropbox"></i>
+                            &nbsp;其他 
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                </a>
+                </span>
+                <span class="navxs">|
+                    <a href="http://www.jq22.com/jquery-plugins布局-1-jq" target="_blank">
+                        <span class="sort">
+                            <i class="fa fa-th-large"></i>
+                            &nbsp;网页模板
+                        </span>
+                </a>|
+                <a href="http://www.jq22.com/webinfo1" target="_blank">
+                    <span class="sort">
+                            <i class="fa fa-file-code-o"></i>
+                            &nbsp;常用代码
+                        </span>
+                </a>|
+                <a href="https://www.mysubmail.com/sms?s=jq22" target="_blank" onclick="adtonji()">
+                    <span class="sort">
+                            <i class="fa fa-comment"></i>&nbsp;短信平台
+                        </span>
+                </a><span class="adgg">|
+                    <a href="http://www.faisco.com/pro8.html?_ta=2253 " target="_blank" onclick="adtonji2()">
+                        <span class="sort">
+                            <i class="fa fa-desktop"></i>
+                            &nbsp; 
+                            <b>免费建站</b>
+                        </span>
+                </a>
+                </span>
+                </span>
+            </div>
+            <div class="container-fluid">
+                <div class="nav-zi" style="display:block;">
+                    <ul class="nn list-inline container m0" style="display:none;">
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins背景-1-jq"><i class="fa fa-delicious ls"></i>背景</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins对话框和灯箱-1-jq"><i class="fa fa-bell-o ls"></i>对话框和灯箱</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins筛选及排序-1-jq"><i class="fa fa-sort-numeric-desc ls"></i>筛选及排序</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins反馈-1-jq"><i class="fa fa-comments-o ls"></i>反馈</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins弹出层-1-jq"><i class="fa fa-stack-overflow ls"></i>弹出层</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins悬停-1-jq"><i class="fa fa-hand-o-up ls"></i>悬停</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins布局-1-jq"><i class="fa fa-th-large ls"></i>布局</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins图表-1-jq"><i class="fa fa-bar-chart ls"></i>图表</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins加载-1-jq"><i class="fa fa-spinner ls"></i>加载</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins圆边-1-jq"><i class="fa fa-circle-o ls"></i>圆边</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins滚动-1-jq"><i class="fa fa-long-arrow-down ls"></i>滚动</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins标签-1-jq"><i class="fa fa-tags ls"></i>标签</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins文本链接-1-jq"><i class="fa fa-link ls"></i>文本链接</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins工具提示-1-jq"><i class="fa fa-info-circle ls"></i>工具提示</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins网络类型-1-jq"><i class="fa fa-code-fork ls"></i>网络类型</a></li>
+                    </ul>
+                    <ul class="nn list-inline container m0" style="display: none;">
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins拾色器-1-jq"><i class="fa fa-eyedropper ls"></i>拾色器</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins定制和风格-1-jq"><i class="fa fa-paint-brush ls"></i>定制和风格</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins日期和时间-1-jq"><i class="fa fa-clock-o ls"></i>日期和时间</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins拖和放-1-jq"><i class="fa fa-arrows ls"></i>拖和放</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins通用输入-1-jq"><i class="fa fa-keyboard-o ls"></i>通用输入</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins自动完成-1-jq"><i class="fa fa-calculator ls"></i>自动完成</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins密码-1-jq"><i class="fa fa-lock ls"></i>密码</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins投票率-1-jq"><i class="fa fa-thumbs-up ls"></i>投票率</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins搜索-1-jq"><i class="fa fa-search ls"></i>搜索</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins选择框-1-jq"><i class="fa fa-caret-square-o-down ls"></i>选择框</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins快捷键-1-jq"><i class="fa fa-adn ls"></i>快捷键</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins触摸-1-jq"><i class="fa fa-hand-o-down ls"></i>触摸</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins丰富的输入-1-jq"><i class="fa fa-h-square ls"></i>丰富的输入</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins上传-1-jq"><i class="fa fa-upload ls"></i>上传</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins验证-1-jq"><i class="fa fa-key ls"></i>验证</a></li>
+                    </ul>
+                    <ul class="nn list-inline container m0" style="display: none;">
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins音频和视频-1-jq"><i class="fa fa-play-circle-o ls"></i>音频和视频</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins幻灯片和轮播图-1-jq"><i class="fa fa-exchange ls"></i>幻灯片和轮播图</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins图片展示-1-jq"><i class="fa fa-eye ls"></i>图片展示</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins图像-1-jq"><i class="fa fa-picture-o ls"></i>图像</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins地图-1-jq"><i class="fa fa-map-marker ls"></i>地图</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins滑块和旋转-1-jq"><i class="fa fa-arrows-h ls"></i>滑块和旋转</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-pluginsTabs-1-jq"><i class="fa fa-folder-o ls"></i>Tabs</a></li>
+                    </ul>
+                    <ul class="nn list-inline container m0" style="display: none;">
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins水平导航-1-jq"><i class="fa fa-long-arrow-right ls"></i>水平导航</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins垂直导航-1-jq"><i class="fa fa-long-arrow-down ls"></i>垂直导航</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins文件树-1-jq"><i class="fa fa-sitemap ls"></i>文件树</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins分页-1-jq"><i class="fa fa-chevron-right ls"></i>分页</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins手风琴菜单-1-jq"><i class="fa fa-trello ls"></i>手风琴菜单</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins其他导航-1-jq"><i class="fa fa-location-arrow ls"></i>其他导航</a></li>
+                    </ul>
+                    <ul class="nn list-inline container m0" style="display: none;">
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins动画效果-1-jq"><i class="fa fa-rocket ls"></i>动画效果</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins浏览器调整-1-jq"><i class="fa fa-expand ls"></i>浏览器调整</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins移动-1-jq"><i class="fa fa-arrows-v ls"></i>移动</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins独立的部件-1-jq"><i class="fa fa-cogs ls"></i>独立的部件</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins杂项-1-jq"><i class="fa fa-gift ls"></i>杂项</a></li>
+                        <li><a class="c-btn border-cool-effect draw" href="http://www.jq22.com/jquery-plugins游戏-1-jq"><i class="fa fa-gamepad ls"></i>游戏</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="carousel-bootImage" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-bootImage" data-slide-to="0" class=""></li>
+                <li data-target="#carousel-bootImage" data-slide-to="1" class=""></li>
+                <li data-target="#carousel-bootImage" data-slide-to="2" class="active"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item">
+                    <img class="lazy-load" alt="First slide" data-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzc3NyI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojN2E3YTdhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+Rmlyc3Qgc2xpZGU8L3RleHQ+PC9zdmc+">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Example headline.</h1>
+                            <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="lazy-load" alt="Second slide" data-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzY2NiI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNmE2YTZhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+U2Vjb25kIHNsaWRlPC90ZXh0Pjwvc3ZnPg==">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Another example headline.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item active">
+                    <img class="lazy-load" alt="Third slide" data-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzU1NSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNWE1YTVhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+VGhpcmQgc2xpZGU8L3RleHQ+PC9zdmc+">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>One more for good measure.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#carousel-bootImage" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="right carousel-control" href="#carousel-bootImage" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+
+    <footer>
+
+    </footer>
+    <script>
+        function changeNavActive() {
+            $("#storyBook ").find(".navbar-right ").find("li ").off("click ").on("click ", function() {
+                if (!$(this).hasClass("noChange ")) {
+                    $("#storyBook ").find(".navbar-right ").find("li ").removeClass("active ");
+                    $(this).addClass("active ");
+                }
+            })
+        };
+        changeNavActive();
+
+        function subNavHover() {
+            var timer = null;
+            $("#menu_wrap").find(".nzz").each(function(index) {
+                $(this).hover(function() {
+                    timer = setTimeout(function() {
+                        $("#menu_wrap").find(".nzz").removeClass("nav-bg");
+                        $("#menu_wrap").find(".container-fluid").find(".nn").hide();
+                        $("#menu_wrap").find(".container-fluid").find(".nav-zi").show().find(".nn").eq(index).show();
+                        $(this).addClass("nav-bg");
+                    }.bind(this), 300)
+                }, function() {
+                    clearTimeout(timer);
+                })
+            });
+            $("#menu_wrap").mouseleave(function() {
+                $("#menu_wrap").find(".nzz").removeClass("nav-bg");
+                $("#menu_wrap").find(".container-fluid").find(".nn").hide();
+            })
+            $("#menu_wrap").find(".nav-zi a").mouseover(function() {
+                $(this).children().removeClass("ls");
+            });
+            $("#menu_wrap").find(".nav-zi a").mouseout(function() {
+                $(this).children().addClass("ls");
+            });
+        }
+        subNavHover();
+        $(function() {
+            function throttle(callback) {
+                // onScroll函数节流
+                let previous = 0;
+                // previous初始设置上一次调用 onScroll 函数时间点为 0。
+                let timeout;
+                const wait = 250;
+                // 250毫秒触发一次
+                const now = Date.now();
+                const remaining = wait - (now - previous);
+                if (remaining <= 0) {
+                    if (timeout) {
+                        window.clearTimeout(timeout);
+                    }
+                    previous = now;
+                    timeout = null;
+                    callback();
+                } else if (!timeout) {
+                    timeout = window.setTimeout(callback, wait);
+                }
+            }
+            $(window).on("scroll ",
+                function() {
+                    throttle(function() {
+                        var top = document.body.scrollTop;
+                        if (top >= 251) {
+                            if (!$("#menu_wrap").attr("style")) {
+                                $("#menu_wrap").css({
+                                    position: "fixed",
+                                    top: 51
+                                })
+                            }
+                        } else {
+                            $("#menu_wrap").removeAttr("style");
+                        }
+                    })
+                }
+            )
+        });
+        //渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)　
+        //预加载，在图片距离屏幕180px时提前载入
+        // 事件触发时才加载，click(点击),mouseover(鼠标划过),sporty(运动的),默认为scroll（滑动）
+        // 指定对某容器中的图片实现效果
+        //加载2张可见区域外的图片,lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,
+        // 但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况
+        // var opts = {　　　　　　　　　
+        //     // effect: "fadeIn",
+        //     data_attribute: "src",
+        //     // threshold: 180,
+        //     // event: 'click',
+        //     container: $("#carousel-bootImage"),
+        //     // failure_limit: 0　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+        // }
+        $("img.lazy-load").lazyload();
+    </script>
+</body>
+<html>
