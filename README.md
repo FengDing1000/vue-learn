@@ -1,6 +1,6 @@
 # storybooks
 
-> 收集各类小说
+> vue的登录注册和简单的路由跳转
 
 ## Build Setup
 
