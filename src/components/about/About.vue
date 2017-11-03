@@ -12,7 +12,7 @@ export default {
         initOthers(this);
     },
     mounted: function() {
-
+ 
     },
     data: function() {
         return {}
